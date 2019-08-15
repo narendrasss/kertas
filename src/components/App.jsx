@@ -2,8 +2,10 @@ import React, { useState } from 'react'
 import { Editor } from 'slate-react'
 import { Value } from 'slate'
 
+import useAuth from '../hooks/useAuth'
+
 import CodeBlock from './code-block'
-import Header from './header'
+import { Header, PublicHeader } from './header'
 
 const initialValue = Value.fromJSON({
   document: {
@@ -28,6 +30,7 @@ const blocks = {
 
 function App() {
   const [value, setValue] = useState(initialValue)
+  const user = useAuth()
 
   const handleChange = ({ value }) => setValue(value)
 
@@ -46,15 +49,15 @@ function App() {
   }
 
   return (
-    <>
-      <Header />
+    <main>
+      {user ? <Header /> : <PublicHeader />}
       <Editor
         value={value}
         onChange={handleChange}
         onKeyDown={handleKeyDown}
         renderBlock={renderBlock}
       />
-    </>
+    </main>
   )
 }
 
