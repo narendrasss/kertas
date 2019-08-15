@@ -3,12 +3,15 @@ const theme = {
     black: '#1b2733',
     grays: {
       light: '#e6e8eb',
-      med: '#637282'
+      med: '#c1c7cd',
+      dark: '#637282'
     },
     blues: {
-      light: '#d6e8fa',
-      dark: '#0070e0'
-    }
+      lighter: '#d6e8fa',
+      light: '#007af5',
+      med: '#0070e0'
+    },
+    pink: '#e00070'
   }
 }
 

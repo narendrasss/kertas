@@ -14,6 +14,7 @@ export default createGlobalStyle`
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     color: ${({ theme }) => theme.colors.black};
+    font-size: 100%;
   }
 
   code {

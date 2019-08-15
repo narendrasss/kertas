@@ -3,6 +3,7 @@ import { Editor } from 'slate-react'
 import { Value } from 'slate'
 
 import CodeBlock from './code-block'
+import Header from './header'
 
 const initialValue = Value.fromJSON({
   document: {
@@ -45,12 +46,15 @@ function App() {
   }
 
   return (
-    <Editor
-      value={value}
-      onChange={handleChange}
-      onKeyDown={handleKeyDown}
-      renderBlock={renderBlock}
-    />
+    <>
+      <Header />
+      <Editor
+        value={value}
+        onChange={handleChange}
+        onKeyDown={handleKeyDown}
+        renderBlock={renderBlock}
+      />
+    </>
   )
 }
 
