@@ -1,7 +1,7 @@
 import CodeBlock from './code-block'
-import Title from './title'
+import HeadingOne from './heading-one'
 
 export default {
   code: CodeBlock,
-  title: Title
+  'heading-one': HeadingOne
 }

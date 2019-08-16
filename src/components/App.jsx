@@ -32,6 +32,11 @@ function App() {
     setValue(value)
   }
 
+  const shouldShowPlaceholder = () => {
+    const node = value.document.nodes.get(0)
+    return node.type === 'paragraph'
+  }
+
   return (
     <main>
       {user ? (
@@ -50,7 +55,9 @@ function App() {
         <Editor
           value={value}
           onChange={handleChange}
-          placeholder="You are a tiny masterpiece"
+          placeholder={
+            shouldShowPlaceholder() ? 'You are a tiny masterpiece' : ''
+          }
         />
       </Content>
     </main>
