@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
+import styled from 'styled-components'
 import { Value } from 'slate'
 
-import useAuth from '../hooks/useAuth'
 import { Header, PublicHeader } from './header'
+import Input from './input'
 import Editor from './editor'
 
 const initialValue = Value.fromJSON({
@@ -14,7 +15,7 @@ const initialValue = Value.fromJSON({
         nodes: [
           {
             object: 'text',
-            text: 'Sample text.'
+            text: ''
           }
         ]
       }
@@ -24,16 +25,46 @@ const initialValue = Value.fromJSON({
 
 function App() {
   const [value, setValue] = useState(initialValue)
-  const user = useAuth()
+  const [user, setUser] = useState(null)
+  const [title, setTitle] = useState('')
 
-  const handleChange = ({ value }) => setValue(value)
+  const handleChange = ({ value }) => {
+    setValue(value)
+  }
 
   return (
     <main>
-      {user ? <Header /> : <PublicHeader />}
-      <Editor value={value} onChange={handleChange} />
+      {user ? (
+        <Header title={title} />
+      ) : (
+        <PublicHeader
+          onSignin={() => setUser({ name: 'Narendra Syahrasyad' })}
+        />
+      )}
+      <Content>
+        <TitleInput
+          value={title}
+          onChange={evt => setTitle(evt.target.value)}
+          placeholder="You are a shining star"
+        />
+        <Editor
+          value={value}
+          onChange={handleChange}
+          placeholder="You are a tiny masterpiece"
+        />
+      </Content>
     </main>
   )
 }
 
 export default App
+
+const TitleInput = styled(Input)`
+  margin-bottom: 1em;
+`
+
+const Content = styled.article`
+  padding-top: 35vh;
+  padding-left: 32px;
+  padding-right: 32px;
+`

@@ -24,7 +24,7 @@ function Header({ title, folder, members }) {
         <BackIcon />
         <SidebarIcon />
         <div>
-          <Title>{title}</Title>
+          <Title>{title.length ? title : 'Untitled'}</Title>
           <Metadata>
             {folder ? (
               <p>{folder}</p>

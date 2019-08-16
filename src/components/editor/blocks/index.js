@@ -1,5 +1,7 @@
 import CodeBlock from './code-block'
+import Title from './title'
 
 export default {
-  code: CodeBlock
+  code: CodeBlock,
+  title: Title
 }
