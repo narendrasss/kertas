@@ -2,7 +2,7 @@ import React from 'react'
 import { Editor as SlateEditor } from 'slate-react'
 
 import { Wrapper } from './style'
-import blocks, { types } from './blocks'
+import blocks, { getType, isOrderedList } from './blocks'
 
 /**
  * On key down, call the appropriate handlers.
@@ -32,11 +32,21 @@ const handleSpace = (evt, editor, next) => {
   const { start } = selection
 
   const chars = startBlock.text.slice(0, start.offset).trim()
-  const type = types[chars]
+  const type = getType(chars)
+  console.log(chars, type)
   if (!type) return next()
   evt.preventDefault()
 
   editor.setBlocks(type)
+
+  if (type === 'list-item') {
+    const isOl = isOrderedList(chars)
+    if (isOl) {
+      editor.setBlocks({ data: { start: chars.split('.')[0] } })
+    }
+    editor.wrapBlock(isOl ? 'ordered-list' : 'unordered-list')
+  }
+
   editor.moveFocusToStartOfNode(startBlock).delete()
 }
 
@@ -51,7 +61,7 @@ const handleSpace = (evt, editor, next) => {
 const handleBackspace = (evt, editor, next) => {
   const { value } = editor
   const { selection, startBlock } = value
-  if (selection.start.offset !== 0) return next()
+  if (selection.isExpanded || selection.start.offset !== 0) return next()
 
   if (startBlock.type === 'paragraph') return next()
 

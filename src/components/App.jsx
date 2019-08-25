@@ -11,11 +11,21 @@ const initialValue = Value.fromJSON({
     nodes: [
       {
         object: 'block',
+        type: 'heading-one',
+        nodes: [
+          {
+            object: 'text',
+            text: 'The Design Process'
+          }
+        ]
+      },
+      {
+        object: 'block',
         type: 'paragraph',
         nodes: [
           {
             object: 'text',
-            text: ''
+            text: 'The first thing that I did was to decide on the tech stack.'
           }
         ]
       }
@@ -26,7 +36,7 @@ const initialValue = Value.fromJSON({
 function App() {
   const [value, setValue] = useState(initialValue)
   const [user, setUser] = useState(null)
-  const [title, setTitle] = useState('')
+  const [title, setTitle] = useState('Recreating Dropbox Paper')
 
   const handleChange = ({ value }) => {
     setValue(value)
@@ -71,7 +81,7 @@ const TitleInput = styled(Input)`
 `
 
 const Content = styled.article`
-  padding-top: 35vh;
+  padding-top: 30vh;
   padding-left: 32px;
   padding-right: 32px;
 `

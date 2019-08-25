@@ -1,10 +1,11 @@
 import React from 'react'
+import Pre from './style'
 
 function CodeBlock({ attributes, children }) {
   return (
-    <pre {...attributes}>
+    <Pre {...attributes}>
       <code>{children}</code>
-    </pre>
+    </Pre>
   )
 }
 
