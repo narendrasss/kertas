@@ -1,4 +1,5 @@
 import React from 'react'
+import Types from 'prop-types'
 
 import Button from '../button'
 import { Wrapper, Flex } from './style'
@@ -15,6 +16,10 @@ function PublicHeader({ onSignin }) {
       </Flex>
     </Wrapper>
   )
+}
+
+PublicHeader.propTypes = {
+  onSignin: Types.func
 }
 
 export default PublicHeader
