@@ -41,10 +41,10 @@ const handleSpace = (evt, editor, next) => {
 
   if (type === 'list-item') {
     const isOl = isOrderedList(chars)
-    if (isOl) {
-      editor.setBlocks({ data: { start: chars.split('.')[0] } })
-    }
-    editor.wrapBlock(isOl ? 'ordered-list' : 'unordered-list')
+    editor.wrapBlock({
+      type: isOl ? 'ordered-list' : 'unordered-list',
+      data: { start: chars.split('.')[0] }
+    })
   }
 
   editor.moveFocusToStartOfNode(startBlock).delete()

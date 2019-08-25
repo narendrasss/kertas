@@ -5,6 +5,7 @@ const Base = styled.button`
   appearance: none;
   border: none;
   outline: none;
+  background: none;
 
   padding: 6px 14px;
 

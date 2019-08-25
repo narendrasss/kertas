@@ -1,9 +1,9 @@
-import HeadingOne from './heading-one'
-import HeadingTwo from './heading-two'
-import HeadingThree from './heading-three'
-import ListItem from './list-item'
-import OrderedList from './ordered-list'
-import CodeBlock from './code-block'
+import HeadingOne from './HeadingOne'
+import HeadingTwo from './HeadingTwo'
+import HeadingThree from './HeadingThree'
+import ListItem from './ListItem'
+import OrderedList from './OrderedList'
+import CodeBlock from './CodeBlock'
 
 export const types = {
   '#': 'heading-one',
