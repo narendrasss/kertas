@@ -10,5 +10,6 @@ export default HeadingTwo
 const Element = styled.h2`
   font-size: 24px;
   font-weight: 600;
+  margin-top: 8px;
   margin-bottom: 12px;
 `

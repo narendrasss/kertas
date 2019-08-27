@@ -10,5 +10,5 @@ export default HeadingThree
 const Element = styled.h3`
   font-size: 16px;
   font-weight: 600;
-  margin-bottom: 4px;
+  margin: 4px 0;
 `

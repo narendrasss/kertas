@@ -33,7 +33,7 @@ const initialValue = Value.fromJSON({
   }
 })
 
-function App() {
+function Document() {
   const [value, setValue] = useState(initialValue)
   const [user, setUser] = useState(null)
   const [title, setTitle] = useState('Recreating Dropbox Paper')
@@ -74,7 +74,7 @@ function App() {
   )
 }
 
-export default App
+export default Document
 
 const TitleInput = styled(Input)`
   margin-bottom: 1em;

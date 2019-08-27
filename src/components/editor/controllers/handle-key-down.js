@@ -29,7 +29,6 @@ const handleSpace = (evt, editor, next) => {
 
   const chars = startBlock.text.slice(0, start.offset).trim()
   const type = getType(chars)
-  console.log(chars, type)
   if (!type) return next()
   evt.preventDefault()
 

@@ -3,6 +3,7 @@ import HeadingTwo from './HeadingTwo'
 import HeadingThree from './HeadingThree'
 import ListItem from './ListItem'
 import OrderedList from './OrderedList'
+import UnorderedList from './UnorderedList'
 import CodeBlock from './CodeBlock'
 
 export const types = {
@@ -32,5 +33,6 @@ export default {
   'heading-three': HeadingThree,
   'list-item': ListItem,
   'ordered-list': OrderedList,
+  'unordered-list': UnorderedList,
   'code-block': CodeBlock
 }

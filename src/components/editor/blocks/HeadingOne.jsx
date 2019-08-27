@@ -10,5 +10,6 @@ export default HeadingOne
 const Element = styled.h1`
   font-size: 32px;
   font-weight: 600;
+  margin-top: 12px;
   margin-bottom: 16px;
 `
